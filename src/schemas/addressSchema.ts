@@ -41,12 +41,22 @@ export const addressSchema = z.discriminatedUnion('country', [
 
 export type Address = z.infer<typeof addressSchema>
 
-export const defaultAddress: Address = {
+export const defaultAddress = {
+  // Common fields
   addressType: 'Home',
   country: 'USA',
   streetAddress: '',
   addressLine2: '',
   city: '',
+
+  // USA fields
   state: '',
   zipCode: '',
-}
+
+  // Canada fields
+  province: '',
+  postalCode: '',
+
+  // UK fields
+  postcode: '',
+} as Address

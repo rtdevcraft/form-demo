@@ -135,8 +135,12 @@ export default function AddressFormDialog({
                 margin='normal'
                 error={!!errors.addressType}
               >
-                <InputLabel>Address Type</InputLabel>
-                <Select {...field} label='Address Type'>
+                <InputLabel id='address-type-label'>Address Type</InputLabel>
+                <Select
+                  {...field}
+                  label='Address Type'
+                  labelId='address-type-label'
+                >
                   {ENUMS.addressTypes.map((type: string) => (
                     <MenuItem key={type} value={type}>
                       {type}
@@ -151,10 +155,11 @@ export default function AddressFormDialog({
             control={control}
             render={({ field }) => (
               <FormControl fullWidth margin='normal' error={!!errors.country}>
-                <InputLabel>Country</InputLabel>
+                <InputLabel id='country-label'>Country</InputLabel>
                 <Select
                   {...field}
                   label='Country'
+                  labelId='country-label'
                   onChange={handleCountryChange}
                 >
                   {ENUMS.countries.map((country: string) => (
